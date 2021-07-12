@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWorkForMaxima.Net", "TestWorkForMaxima.Net\TestWorkForMaxima.Net.csproj", "{AAA32C33-D5FD-4C7A-B552-B481CFA78A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWorkForMaxima.Domain", "TestWorkForMaxima.Domain\TestWorkForMaxima.Domain.csproj", "{DFA1BF6C-68D5-45D8-9214-6FC8FAB28E3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAA32C33-D5FD-4C7A-B552-B481CFA78A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAA32C33-D5FD-4C7A-B552-B481CFA78A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAA32C33-D5FD-4C7A-B552-B481CFA78A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAA32C33-D5FD-4C7A-B552-B481CFA78A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA1BF6C-68D5-45D8-9214-6FC8FAB28E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA1BF6C-68D5-45D8-9214-6FC8FAB28E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA1BF6C-68D5-45D8-9214-6FC8FAB28E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA1BF6C-68D5-45D8-9214-6FC8FAB28E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31CF5C88-B146-4AD3-9868-9D7C94650F54}
+	EndGlobalSection
+EndGlobal
