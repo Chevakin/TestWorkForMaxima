@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestWorkForMaxima.Domain.Extensions;
 
 namespace TestWorkForMaxima.Net
 {
@@ -23,11 +24,18 @@ namespace TestWorkForMaxima.Net
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddQueuePolicy(options =>
+            {
+                options.MaxConcurrentRequests = Configuration.GetMaxConcurrentRequest();
+                options.RequestQueueLimit = 0;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseConcurrencyLimiter();
+
             app.UseStaticFiles();
 
             app.UseRouting();
