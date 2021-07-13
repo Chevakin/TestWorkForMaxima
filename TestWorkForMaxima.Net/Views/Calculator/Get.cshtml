@@ -10,18 +10,12 @@
 {
     <script>
         $(function () {
-            alert("From Scripts");
-
             $('#btnResult').click(function () {
                 $.get("calculate",
                     {
                         one: $('#numberOne').val(),
                         two: $('#numberTwo').val(),
                         operation: $('#operation').val()
-
-                        //one: 1,
-                        //two: 2,
-                        //operation: 42
                     },
                     function (data) {
                         $('#result').val(data);
