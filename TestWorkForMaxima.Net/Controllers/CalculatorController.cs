@@ -5,8 +5,8 @@ using TestWorkForMaxima.Domain.Services.Interfaces;
 
 namespace TestWorkForMaxima.Net.Controllers
 {
-    [Route("")]
-    public class CalculatorController : Controller
+    [Route("api/calculator")]
+    public class CalculatorController : ControllerBase
     {
         private readonly ICalculatorService _calculator;
 
@@ -15,15 +15,8 @@ namespace TestWorkForMaxima.Net.Controllers
             _calculator = calculator;
         }
 
-        [Route("")]
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return View();
-        }
-
         [Route("calculate")]
-        [HttpGet]
+        [HttpPost]
         public double Calculate(double one, double two, Operations operation)
         {
             Func<double, double, double> func;

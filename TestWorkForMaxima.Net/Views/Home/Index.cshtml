@@ -3,7 +3,7 @@
     <select id="operation" asp-items="@Html.GetEnumSelectList<Operations>()"></select>
     <input id="numberTwo" type="number" />
     <button id="btnResult">=</button>
-    <textarea id="result" readonly  ></textarea>
+    <textarea id="result" readonly ></textarea>
 </div>
 
 @section Scripts
@@ -11,7 +11,7 @@
     <script>
         $(function () {
             $('#btnResult').click(function () {
-                $.get("calculate",
+                $.post("api/calculator/calculate",
                     {
                         one: $('#numberOne').val(),
                         two: $('#numberTwo').val(),
