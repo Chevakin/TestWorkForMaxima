@@ -22,12 +22,6 @@ namespace TestWorkForMaxima.Net
         {
             //technical
             services.AddControllersWithViews();
-            services.AddQueuePolicy(options =>
-            {
-                options.MaxConcurrentRequests = Configuration.GetMaxConcurrentRequest();
-                options.RequestQueueLimit = 0;
-            });
-
             //common
             services.AddTransient<ICalculatorService, CalculatorService>();
         }
@@ -35,7 +29,7 @@ namespace TestWorkForMaxima.Net
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseConcurrencyLimiter();
+            app.UseCustomConcurrencyLimiter(Configuration.GetMaxConcurrentRequest());
 
             app.UseStaticFiles();
 
