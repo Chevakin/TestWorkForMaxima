@@ -19,12 +19,17 @@ namespace TestWorkForMaxima.Domain.Services
         public double Calculate(double one, double two, Operations operation)
         {
             var realOperation = _operations
-                .FirstOrDefault(o => o.CanBeApplied(operation));
+                .Where(o => o.CanBeApplied(operation));
 
-            if (realOperation is null)
+            if (realOperation.Any() == false)
                 throw new Exception($"Нет зарегистрированной в DI-контейнере операции для {nameof(operation)}");
 
-            return realOperation.Execute(one, two);
+            if (realOperation.Count() > 1)
+                throw new Exception($"В DI-контейнере больше одной операции сопоставимой с {nameof(operation)}");
+
+            return realOperation
+                .First()
+                .Execute(one, two);
         }
     }
 }
