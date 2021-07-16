@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 using TestWorkForMaxima.Domain.Extensions;
+using TestWorkForMaxima.Domain.Interfaces;
 using TestWorkForMaxima.Domain.Services;
 using TestWorkForMaxima.Domain.Services.Interfaces;
 
@@ -25,9 +27,7 @@ namespace TestWorkForMaxima.Net
 
             //common
             services.AddTransient<ICalculatorService, CalculatorService>();
-            services.AddTransient<ArithmeicOperationFactory>();
-            services.AddTransient<Sum>();
-            services.AddTransient<Multiply>();
+            services.AddArithmeticOperations();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
