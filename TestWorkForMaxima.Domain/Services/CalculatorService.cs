@@ -1,17 +1,28 @@
-﻿using TestWorkForMaxima.Domain.Services.Interfaces;
+﻿using System;
+using TestWorkForMaxima.Domain.Models;
+using TestWorkForMaxima.Domain.Services.Interfaces;
 
 namespace TestWorkForMaxima.Domain.Services
 {
     public class CalculatorService : ICalculatorService
     {
-        public double Sum(double one, double two)
+        private readonly ArithmeicOperationFactory _factory;
+
+        public CalculatorService(ArithmeicOperationFactory factory)
         {
-            return one + two;
+            _factory = factory;
         }
 
-        public double Multiply(double one, double two)
+        public double Calculate(double one, double two, Operations operation)
         {
-            return one * two;
+            var arithmeticOperation = _factory.GetArithmeticOperation(operation);
+
+            if (arithmeticOperation is null)
+            {
+                throw new Exception($"Не удалось получить из фабрики операция сопоставимую с {nameof(operation)}");
+            }
+
+            return arithmeticOperation.Execute(one, two);
         }
     }
 }

@@ -19,22 +19,7 @@ namespace TestWorkForMaxima.Net.Controllers
         [HttpPost]
         public double Calculate(double one, double two, Operations operation)
         {
-            Func<double, double, double> func;
-
-            if (operation == Operations.Sum)
-            {
-                func = _calculator.Sum;
-            }
-            else if (operation == Operations.Multiply)
-            {
-                func = _calculator.Multiply;
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException(nameof(operation));
-            }
-
-            return func(one, two);
+            return _calculator.Calculate(one, two, operation);
         }
     }
 }

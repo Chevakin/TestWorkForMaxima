@@ -22,8 +22,12 @@ namespace TestWorkForMaxima.Net
         {
             //technical
             services.AddControllersWithViews();
+
             //common
             services.AddTransient<ICalculatorService, CalculatorService>();
+            services.AddTransient<ArithmeicOperationFactory>();
+            services.AddTransient<Sum>();
+            services.AddTransient<Multiply>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
